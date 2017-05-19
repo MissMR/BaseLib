@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-public abstract class MainActivity extends BaseActivity {
+public abstract class TabHostActivity extends BaseActivity {
 
     public static FragmentTabHost mTabHost;
     public static int id = 0;

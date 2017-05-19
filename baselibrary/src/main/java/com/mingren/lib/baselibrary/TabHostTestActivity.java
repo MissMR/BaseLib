@@ -3,7 +3,7 @@ package com.mingren.lib.baselibrary;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 
-public class Main2Activity extends MainActivity {
+public class TabHostTestActivity extends TabHostActivity {
 
     @Override
     protected void initTabHost(FragmentTabHost tabHost) {
