@@ -84,7 +84,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                         if (!b) {
                             // 用户还是想用我的 APP 的
                             // 提示用户去应用设置界面手动开启权限
-                            PermissionUtil.showDialogTipUserRequestPermission(this, "打开相机，需要开启权限，否则无法正常使用相机", new DialogInterface.OnClickListener() {
+                            PermissionUtil.showDialogTipUserRequestPermission(this, "权限被禁用，需要跳转到权限管理，手动打开权限", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     goToAppSetting();

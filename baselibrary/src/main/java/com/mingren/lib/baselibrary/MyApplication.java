@@ -8,6 +8,10 @@ import com.mingren.lib.baselibrary.utils.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+
 /**
  * Created by Administrator on 2017/4/4.
  */
@@ -15,6 +19,22 @@ import java.util.List;
 public class MyApplication extends Application {
 
     List<Activity> activityList = new ArrayList<Activity>();
+    public static Retrofit retrofit;
+    String HOST = "https://technology.zhongyuedu.com/";
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        // 初始化网络框架
+        if (retrofit == null){
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(HOST)
+                    //增加返回值为String的支持
+                    .addConverterFactory(ScalarsConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+
+    }
 
     public void addActivity(Activity activity) {
         if (!activityList.contains(activity)) {
