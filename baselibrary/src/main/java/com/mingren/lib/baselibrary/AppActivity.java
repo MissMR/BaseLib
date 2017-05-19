@@ -20,22 +20,6 @@ public abstract class AppActivity extends BaseActivity {
 
     BaseFragment firstFragment;
 
-    // 添加Fragment
-    protected  void addFragment(BaseFragment fragment){
-      addFragment(fragment);
-    }
-    // 移除当前Fragment
-    protected  void removeFragment(){
-        if (getSupportFragmentManager().getBackStackEntryCount() >1){
-            getSupportFragmentManager().popBackStack();
-            Log.e("log","remove");
-        }else{
-            finish();
-            Log.e("log","finish");
-        }
-    }
-
-
     // 返回键处理
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
