@@ -9,8 +9,11 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+
+import com.mingren.lib.baselibrary.BaseFragment;
 
 /**
  *  申请权限工具类
@@ -39,21 +42,20 @@ public class PermissionUtil {
     /**
      *   申请权限
      */
-    public static void permission(final Activity context, String message,final String[] permission,final int code){
+    public static void permission(final BaseFragment fragment, String message, final String[] permission, final int code){
         // 检查该权限是否已经获取
-                     int i = ContextCompat.checkSelfPermission(context, permission[0]);
+                     int i = ContextCompat.checkSelfPermission(fragment.getMyActivity(), permission[0]);
                      // 权限是否已经 授权 GRANTED---授权  DINIED---拒绝
                      if (i != PackageManager.PERMISSION_GRANTED) {
                              // 如果没有授予该权限，就去提示用户请求
-                         showDialogTipUserRequestPermission(context,message, new DialogInterface.OnClickListener() {
+                         showDialogTipUserRequestPermission(fragment.getMyActivity(),message, new DialogInterface.OnClickListener() {
                              @Override
                              public void onClick(DialogInterface dialog, int which) {
-                                 startRequestPermission(context,permission,code);
+                                 startRequestPermission(fragment.getMyActivity(),permission,code);
                              }
                          });
                      }else{
-                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                         context.startActivity(intent);
+                         ((PermissionLisenter)fragment).permissionRunnable();
                      }
     }
 

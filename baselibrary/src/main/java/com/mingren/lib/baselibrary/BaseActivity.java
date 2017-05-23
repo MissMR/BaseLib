@@ -74,7 +74,27 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode){
             case PermissionUtil.WRITE_EXTERNAL_STORAGE:
-
+                if (PermissionUtil.buildVersion()){
+                    if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                        // 判断用户是否 点击了不再提醒。(检测该权限是否还可以申请)
+                        boolean b = shouldShowRequestPermissionRationale(permissions[0]);
+                        if (!b) {
+                            // 用户还是想用我的 APP 的
+                            // 提示用户去应用设置界面手动开启权限
+                            PermissionUtil.showDialogTipUserRequestPermission(this, "权限被禁用，需要跳转到权限管理，手动打开权限", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    goToAppSetting();
+                                }
+                            });
+                        } else
+                            finish();
+                    } else {
+                        if (permissionLisenter != null){
+                            permissionLisenter.permissionRunnable();
+                        }
+                    }
+                }
                 break;
             case  PermissionUtil.CAMERA:
                 if (PermissionUtil.buildVersion()){
