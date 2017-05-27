@@ -16,6 +16,7 @@ import com.mingren.lib.baselibrary.inject.InjectView;
 import com.mingren.lib.baselibrary.okhttp.ProgressRequestListener;
 import com.mingren.lib.baselibrary.okhttp.ProgressResponseListener;
 import com.mingren.lib.baselibrary.okhttp.ServiceGenerator;
+import com.mingren.lib.baselibrary.utils.FileUtils;
 import com.mingren.lib.baselibrary.utils.ToastUtils;
 import com.mingren.lib.baselibrary.utils.premission.PermissionLisenter;
 import com.mingren.lib.baselibrary.utils.premission.PermissionUtil;
@@ -70,7 +71,7 @@ public class Fragment1 extends BaseFragment implements PermissionLisenter,Progre
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()) {
-                    boolean writtenToDisk = writeResponseBodyToDisk(response.body(), "1.apk");
+                    boolean writtenToDisk = FileUtils.writeResponseBodyToDisk(getMyActivity(),response.body(), "1.apk");
                 } else {
                     Log.e("Download", "server contact failed");
                 }
@@ -89,53 +90,5 @@ public class Fragment1 extends BaseFragment implements PermissionLisenter,Progre
         Log.e("read",bytesRead+""+done);
     }
 
-    private boolean writeResponseBodyToDisk(ResponseBody body,String savaName) {
-        try {
-            // todo change the file location/name according to your needs
-            File futureStudioIconFile = new File(getMyActivity().getExternalFilesDir(null) + File.separator + savaName);
-            Log.e("file",futureStudioIconFile.toString());
-            InputStream inputStream = null;
-            OutputStream outputStream = null;
 
-            try {
-                byte[] fileReader = new byte[4096];
-
-                long fileSize = body.contentLength();
-                long fileSizeDownloaded = 0;
-
-                inputStream = body.byteStream();
-                outputStream = new FileOutputStream(futureStudioIconFile);
-
-                while (true) {
-                    int read = inputStream.read(fileReader);
-
-                    if (read == -1) {
-                        break;
-                    }
-
-                    outputStream.write(fileReader, 0, read);
-
-                    fileSizeDownloaded += read;
-
-                    Log.w("saveFile", "file download: " + fileSizeDownloaded + " of " + fileSize);
-                }
-
-                outputStream.flush();
-
-                return true;
-            } catch (IOException e) {
-                return false;
-            } finally {
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-
-                if (outputStream != null) {
-                    outputStream.close();
-                }
-            }
-        } catch (IOException e) {
-            return false;
-        }
-    }
 }

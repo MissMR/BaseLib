@@ -1,0 +1,54 @@
+                            说明文档
+ BaseActivity : 支持注解的Activity  ， 支持fragment切换与删除
+ AppActivity： 支持fragment的Activity
+ BaseFragment： 支持注解的Fragment，处理了getActivity == null的问题
+ TabHostActivity： 封装的FragmentTabHostActivity, 用于首页
+
+
+Utils：
+    一. FileUtils ： 文件io操作相关工具
+        1. 下载的文件写入到根目录： writeResponseBodyToDisk(Context context, ResponseBody body, String savaName)
+
+    二. KeyBoardUtils: 软键盘相关工具
+        1. 打开软键盘 : openKeybord(EditText mEditText, Context mContext)
+        2. 关闭软件盘 : closeKeybord(EditText mEditText, Context mContext)
+
+    三. MyUtils:  常用工具
+        1. 防止连续点击：isFastDoubleClick(Context context)
+
+    四. NetUtils: 网络相关工具
+        1. 判断网络是否连接：isConnected(Context context)
+        2. 判断是否是wifi连接： isWifi(Context context)
+        3. 打开网络设置界面 ： openSetting(Activity activity)
+
+    五. SDCardUtils: SD卡相关工具
+         1. 判断SDCard是否可用: isSDCardEnable()
+         2. 获取SD卡路径: getSDCardPath()
+         3. 获取SD卡的剩余容量 单位byte: getSDCardAllSize()
+         4.  获取指定路径所在空间的剩余可用容量字节数:  getFreeBytes(String filePath)
+         5. 获取系统存储路径 getRootDirectoryPath()
+
+    六. SPUtils:  SharedPreferences 相关工具
+            1. 存入： put(Context context, String key, Object object)
+            2. 获取: get(Context context, String key, Object defaultObject)
+            3. 移除某个key值已经对应的值:  remove(Context context, String key)
+            4. 清除所有数据: clear(Context context)
+            5. 查询某个key是否已经存在: contains(Context context, String key)
+            6. 返回所有的键值对Map<String, ?> getAll(Context context)
+
+    七. ToastUtils:
+             showToast(Context context, String s)
+             showToast(Context context, int resId)
+
+    八. ScreenUtil： 屏幕相关工具类
+           1. 获得屏幕宽度 ：getScreenWidth(Context context)
+           2. 获取屏幕高度 ： getScreenHeight(Context context)
+           3. dp转px ： dip2px(Context context, float dpValue)
+           4. px转dp ： px2dip(Context context, float pxValue)
+           5. 获得状态栏的高度： getStatusHeight(Context context)
+           6. 获取当前屏幕截图，包含状态栏 ： snapShotWithStatusBar(Activity activity)
+           7. 获取当前屏幕截图，不包含状态栏 ： snapShotWithoutStatusBar(Activity activity)
+
+     九. PermissionUtil ： 权限申请
+           1. 判断系统大于等于23 : buildVersion()
+           2. 申请权限 :  permission(final BaseFragment fragment, String message, final String[] permission, final int code)
