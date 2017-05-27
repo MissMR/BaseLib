@@ -39,7 +39,7 @@ import static android.content.ContentValues.TAG;
  * Created by Administrator on 2017/5/11.
  */
 
-public class Fragment1 extends BaseFragment implements PermissionLisenter,ProgressResponseListener{
+public class RetrofitDemoFragment extends BaseFragment implements PermissionLisenter,ProgressResponseListener{
     @InjectView(R.id.tv)
     TextView textView;
     String url = "http://linux.zhongyuedu.com/php/apk/vlinchuangzhiye.apk";
@@ -58,10 +58,10 @@ public class Fragment1 extends BaseFragment implements PermissionLisenter,Progre
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PermissionUtil.permission(Fragment1.this,"打开读写权限",PermissionUtil.writePermission,PermissionUtil.WRITE_EXTERNAL_STORAGE);
+                PermissionUtil.permission(RetrofitDemoFragment.this,"打开读写权限",PermissionUtil.writePermission,PermissionUtil.WRITE_EXTERNAL_STORAGE);
             }
         });
-         downloadService = ServiceGenerator.createResponseService(IpService.class, this);
+        downloadService = ServiceGenerator.createResponseService(IpService.class, this);
     }
 
     @Override

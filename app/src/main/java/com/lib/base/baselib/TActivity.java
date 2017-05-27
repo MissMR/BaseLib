@@ -1,6 +1,7 @@
 package com.lib.base.baselib;
 
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -17,12 +18,11 @@ public class TActivity extends AppActivity {
 
     @Override
     protected BaseFragment getFirstFragment() {
-        return new Fragment1();
+        return new RetrofitDemoFragment();
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-
     }
 }
