@@ -28,11 +28,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract int getFragmentViewId();
 
     MyApplication myApplication;
-    FragmentTransaction ft;
     PermissionLisenter permissionLisenter;
     // 添加Fragment
     protected void addFragment(BaseFragment fragment) {
-               ft.replace(getFragmentViewId(), fragment, fragment.getClass().getSimpleName())
+        getSupportFragmentManager().beginTransaction().replace(getFragmentViewId(), fragment, fragment.getClass().getSimpleName())
                 .addToBackStack(fragment.getClass().getSimpleName())
                 .commitAllowingStateLoss();
     }
@@ -55,7 +54,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getContentViewId());
         myApplication = (MyApplication) getApplication();
         myApplication.addActivity(this);
-        ft  =  getSupportFragmentManager().beginTransaction();
         InjectView();
     }
 

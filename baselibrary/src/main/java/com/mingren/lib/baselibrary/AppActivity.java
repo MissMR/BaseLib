@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import java.util.List;
+
 public abstract class AppActivity extends BaseActivity {
 
     @Override
@@ -38,7 +40,9 @@ public abstract class AppActivity extends BaseActivity {
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //避免重复添加Fragment
-        if (null == getSupportFragmentManager().getFragments()) {
+        List fragments = getSupportFragmentManager().getFragments();
+        Log.e("fragmentSize",fragments.size()+"");
+        if (null == fragments || fragments.size() == 0 ) {
              firstFragment = getFirstFragment();
             if (null != firstFragment) {
                 addFragment(firstFragment);
