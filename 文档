@@ -1,9 +1,11 @@
                             说明文档
+
  BaseActivity : 支持注解的Activity  ， 支持fragment切换与删除
  AppActivity： 支持fragment的Activity
  BaseFragment： 支持注解的Fragment，处理了getActivity == null的问题
  TabHostActivity： 封装的FragmentTabHostActivity, 用于首页
-
+ TablayoutFragment : 封装的 tablayout +Viewpager布局， 调用setData（fragments，tabs） 设置数据源
+ BaseDialog: 封装的自定义dialog父类，重写initView（）设置布局，调用setSize（width，height） ，设置dialog大小
 
 Utils：
     一. FileUtils ： 文件io操作相关工具

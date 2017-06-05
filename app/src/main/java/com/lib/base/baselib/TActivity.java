@@ -26,7 +26,7 @@ public class TActivity extends AppActivity {
     @Override
     protected BaseFragment getFirstFragment() {
 
-        return  new Fist();
+        return  new RecyclerViewFragment();
         //return new RetrofitDemoFragment();
     }
 
