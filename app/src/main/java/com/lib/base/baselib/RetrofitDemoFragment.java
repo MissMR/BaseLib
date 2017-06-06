@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,9 @@ import static android.content.ContentValues.TAG;
 public class RetrofitDemoFragment extends BaseFragment implements PermissionLisenter,ProgressResponseListener{
     @InjectView(R.id.tv)
     TextView textView;
+    @InjectView(R.id.jindu)
+    TextView jindu;
+
     String url = "http://linux.zhongyuedu.com/php/apk/vlinchuangzhiye.apk";
 
     @Override
@@ -54,6 +58,7 @@ public class RetrofitDemoFragment extends BaseFragment implements PermissionLise
     @Override
     protected void initView(View view, Bundle bundle) {
         getMyActivity().setPermission(this);
+        jindu.setText("下载进度 ： 0");
         textView.setText("下载");
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,10 +89,26 @@ public class RetrofitDemoFragment extends BaseFragment implements PermissionLise
         });
     }
 
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case 0:
+                    String str = (String) msg.obj;
+                    jindu.setText(str);
+                    break;
+            }
+        }
+    };
 
     @Override
     public void onResponseProgress(long bytesRead, long contentLength, boolean done) {
         Log.e("read",bytesRead+""+done);
+        Message message = new Message();
+        message.what = 0;
+        message.obj = "下载进度 ： "+bytesRead;
+        handler.sendMessage(message);
+
     }
 
 

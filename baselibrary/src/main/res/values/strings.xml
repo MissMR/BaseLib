@@ -3,7 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="one">"资讯"</string>
+    <string name="one">"网络下载"</string>
     <string name="two">"题库"</string>
     <string name="three">"社区"</string>
     <string name="four">"试听"</string>

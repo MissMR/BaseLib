@@ -30,6 +30,7 @@ public  class TablayoutFragment extends BaseFragment {
         return  R.layout.fragment_tabhost;
     }
 
+
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         if (fragments != null && tabs != null){
