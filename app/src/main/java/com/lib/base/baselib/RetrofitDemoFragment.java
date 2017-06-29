@@ -37,6 +37,7 @@ public class RetrofitDemoFragment extends BaseFragment implements PermissionLise
 
     Call<ResponseBody> call;
     IpService downloadService;
+    boolean isDownLoad = false;
     @Override
     protected void initView(View view, Bundle bundle) {
         getMyActivity().setPermission(this);
@@ -45,7 +46,17 @@ public class RetrofitDemoFragment extends BaseFragment implements PermissionLise
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PermissionUtil.permission(RetrofitDemoFragment.this,"打开读写权限",PermissionUtil.writePermission,PermissionUtil.WRITE_EXTERNAL_STORAGE);
+                if (!isDownLoad){
+                    isDownLoad = true;
+                    PermissionUtil.permission(RetrofitDemoFragment.this,"打开读写权限",PermissionUtil.writePermission,PermissionUtil.WRITE_EXTERNAL_STORAGE);
+                }else{
+                    if (call != null){
+                        call.cancel();
+                        isDownLoad = false;
+                    }
+                }
+
+
             }
         });
         downloadService = ServiceGenerator.createResponseService(IpService.class, this);
@@ -54,6 +65,7 @@ public class RetrofitDemoFragment extends BaseFragment implements PermissionLise
     @Override
     public void permissionRunnable() {
         call = downloadService.downloadFileWithDynamicUrlSync(url);
+
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

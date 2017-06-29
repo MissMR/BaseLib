@@ -30,7 +30,6 @@ public class FileUtils {
             Log.e("file",futureStudioIconFile.toString());
             InputStream inputStream = null;
             OutputStream outputStream = null;
-
             try {
                 byte[] fileReader = new byte[4096];
 
@@ -46,11 +45,8 @@ public class FileUtils {
                     if (read == -1) {
                         break;
                     }
-
                     outputStream.write(fileReader, 0, read);
-
                     fileSizeDownloaded += read;
-
                     Log.w("saveFile", "file download: " + fileSizeDownloaded + " of " + fileSize);
                 }
 
