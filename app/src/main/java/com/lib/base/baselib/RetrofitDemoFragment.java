@@ -1,44 +1,26 @@
 package com.lib.base.baselib;
 
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.mingren.lib.baselibrary.*;
+import com.mingren.lib.baselibrary.basefragment.BaseFragment;
 import com.mingren.lib.baselibrary.inject.InjectView;
-import com.mingren.lib.baselibrary.okhttp.ProgressRequestListener;
 import com.mingren.lib.baselibrary.okhttp.ProgressResponseListener;
 import com.mingren.lib.baselibrary.okhttp.ServiceGenerator;
 import com.mingren.lib.baselibrary.utils.FileUtils;
-import com.mingren.lib.baselibrary.utils.ToastUtils;
 import com.mingren.lib.baselibrary.utils.premission.PermissionLisenter;
 import com.mingren.lib.baselibrary.utils.premission.PermissionUtil;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.content.ContentValues.TAG;
-
-
-/**
- * Created by Administrator on 2017/5/11.
- */
 
 public class RetrofitDemoFragment extends BaseFragment implements PermissionLisenter,ProgressResponseListener{
     @InjectView(R.id.tv)
@@ -108,7 +90,6 @@ public class RetrofitDemoFragment extends BaseFragment implements PermissionLise
         message.what = 0;
         message.obj = "下载进度 ： "+bytesRead;
         handler.sendMessage(message);
-
     }
 
 

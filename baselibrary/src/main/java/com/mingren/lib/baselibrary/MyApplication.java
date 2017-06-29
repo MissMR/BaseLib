@@ -25,9 +25,8 @@ public class MyApplication extends Application {
     public static void setHost(String host){
         HOST = host;
     }
-    @Override
-    public void onCreate() {
-        super.onCreate();
+
+    public static Retrofit getRetrofit(){
         // 初始化网络框架
         if (retrofit == null){
             retrofit = new Retrofit.Builder()
@@ -37,6 +36,13 @@ public class MyApplication extends Application {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
+        return retrofit;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
 
     }
 

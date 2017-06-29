@@ -1,4 +1,4 @@
-package com.mingren.lib.baselibrary;
+package com.mingren.lib.baselibrary.basefragment;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
+
+import com.mingren.lib.baselibrary.MyApplication;
+import com.mingren.lib.baselibrary.R;
 
 public abstract class TabHostActivity extends BaseActivity {
 

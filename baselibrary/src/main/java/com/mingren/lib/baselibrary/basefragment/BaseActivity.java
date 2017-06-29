@@ -1,4 +1,4 @@
-package com.mingren.lib.baselibrary;
+package com.mingren.lib.baselibrary.basefragment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,11 +9,12 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 
+import com.mingren.lib.baselibrary.MyApplication;
+import com.mingren.lib.baselibrary.basefragment.BaseFragment;
 import com.mingren.lib.baselibrary.inject.InjectView;
 import com.mingren.lib.baselibrary.utils.premission.PermissionLisenter;
 import com.mingren.lib.baselibrary.utils.premission.PermissionUtil;

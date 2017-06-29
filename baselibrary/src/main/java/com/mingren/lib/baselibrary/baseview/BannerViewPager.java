@@ -1,4 +1,4 @@
-package com.lib.base.baselib;
+package com.mingren.lib.baselibrary.baseview;
 
 import android.content.Context;
 import android.os.Handler;
@@ -10,8 +10,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.mingren.lib.baselibrary.R;
 import com.mingren.lib.baselibrary.utils.premission.ScreenUtil;
 import com.squareup.picasso.Picasso;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,6 @@ import java.util.List;
  */
 
 public class BannerViewPager extends RelativeLayout{
-
     private ViewPager viewPager;
     List<ImageView> vpList ;
     private LinearLayout spotLayout;
@@ -56,7 +57,6 @@ public class BannerViewPager extends RelativeLayout{
         PagerAdapter  adapter = new PagerAdapter(vpList,context);
         viewPager.setAdapter(adapter );
         mHandler.postDelayed(new TimedRunnable(),2000);
-
     }
 
     private void  initImageView(List<String> list ,Context context){
@@ -128,11 +128,9 @@ public class BannerViewPager extends RelativeLayout{
             }else{
                 imageView.setEnabled(false);
             }
-
               spotLayout.addView(imageView);
           }
       }
-
     }
 
     class  PagerAdapter extends android.support.v4.view.PagerAdapter{
@@ -192,7 +190,6 @@ public class BannerViewPager extends RelativeLayout{
                     viewPager.setCurrentItem(perPosition - 1);
                 }
             }
-
 
           mHandler.postDelayed(new TimedRunnable(),2000);
         }

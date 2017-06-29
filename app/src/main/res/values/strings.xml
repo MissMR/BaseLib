@@ -6,6 +6,6 @@
     <string name="one">"下载"</string>
     <string name="two">"TabFragment"</string>
     <string name="three">"Banner"</string>
-    <string name="four">"试听"</string>
-    <string name="five">"设置"</string>
+    <string name="four">"RecyclePager"</string>
+    <string name="five">"upLoad"</string>
 </resources>

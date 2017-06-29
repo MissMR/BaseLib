@@ -1,4 +1,4 @@
-package com.mingren.lib.baselibrary;
+package com.mingren.lib.baselibrary.basefragment;
 
 
 import android.content.Context;

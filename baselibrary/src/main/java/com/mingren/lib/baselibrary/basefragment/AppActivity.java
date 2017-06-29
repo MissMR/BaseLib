@@ -1,8 +1,12 @@
-package com.mingren.lib.baselibrary;
+package com.mingren.lib.baselibrary.basefragment;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+
+import com.mingren.lib.baselibrary.R;
+import com.mingren.lib.baselibrary.basefragment.BaseActivity;
+import com.mingren.lib.baselibrary.basefragment.BaseFragment;
 
 import java.util.List;
 

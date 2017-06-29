@@ -4,16 +4,13 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 
-import com.mingren.lib.baselibrary.BaseFragment;
+import com.mingren.lib.baselibrary.basefragment.BaseFragment;
 
 /**
  *  申请权限工具类

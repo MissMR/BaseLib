@@ -54,7 +54,7 @@ Utils：
      九. PermissionUtil ： 权限申请
            1. 判断系统大于等于23 : buildVersion()
            2. 申请权限 :  permission(final BaseFragment fragment, String message, final String[] permission, final int code)
-
+            备注： 调用申请权限的方法后，需要实现PermissionLisenter，并且调用BaseActivity的setPermissionLisenter方法
      十.  okhttp_ServiceGenerator: okhttp 实现下载文件监听进度
           1. 创建带响应进度(下载进度)回调的service:  createResponseService(Class<T> tClass, ProgressResponseListener listener)
           2. 创建带请求体进度(上传进度)回调的service : createReqeustService(Class<T> tClass, ProgressRequestListener listener)

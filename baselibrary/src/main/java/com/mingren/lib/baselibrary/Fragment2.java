@@ -3,6 +3,8 @@ package com.mingren.lib.baselibrary;
 import android.os.Bundle;
 import android.view.View;
 
+import com.mingren.lib.baselibrary.basefragment.BaseFragment;
+
 
 public class Fragment2 extends BaseFragment {
 
