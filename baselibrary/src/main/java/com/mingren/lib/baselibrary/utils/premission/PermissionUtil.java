@@ -52,7 +52,7 @@ public class PermissionUtil {
                              }
                          });
                      }else{
-                         ((PermissionLisenter)fragment).permissionRunnable();
+                         ((PermissionLisenter)fragment).permissionRunnable(code);
                      }
     }
 

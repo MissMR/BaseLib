@@ -90,7 +90,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                             finish();
                     } else {
                         if (permissionLisenter != null){
-                            permissionLisenter.permissionRunnable();
+                            permissionLisenter.permissionRunnable(requestCode);
                         }
                     }
                 }
@@ -113,7 +113,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                             finish();
                     } else {
                         if (permissionLisenter != null){
-                            permissionLisenter.permissionRunnable();
+                            permissionLisenter.permissionRunnable(requestCode);
                         }
                     }
                 }

@@ -6,6 +6,6 @@ package com.mingren.lib.baselibrary.utils.premission;
 
 public interface PermissionLisenter {
 
-     void permissionRunnable();
+     void permissionRunnable(int code);
 
 }
